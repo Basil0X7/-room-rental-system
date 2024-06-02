@@ -1,0 +1,39 @@
+INSERT INTO oner (oner_id, oner_name, oner_phone_number)
+VALUES
+(122, 'ahmad', '567-253-2531'),
+(113, 'khaled', '567-541-7321'),
+(115, 'loai', '567-431-5568'),
+(118, 'ismael', '567-212-1111'),
+(125, 'noor', '567-785-4212');
+
+INSERT INTO apartment (apartment_id, building_name, building_number, apartment_area, number_of_rooms, monthly_collection, oner_id)
+VALUES
+(5253, 'halabi', 25200, 170, 4, 2400, 122),
+(5254, 'halabi', 25200, 190, 4, 2400, 113),
+(4312, 'daraghmed', 34300, 170, 3, 1650, 118),
+(3452, 'nidal', 33400, 150, 3, 1500, 125),
+(4322, 'daraghmed', 34300, 200, 6, 3000, 122),
+(2121, 'faris', 52100, 170, 4, 2000, 115),
+(5321, 'qutop', 25300, 160, 3, 1500, 125),
+(7918, 'qutop', 25300, 130, 2, 1400, 115),
+(3442, 'nidal', 33400, 190, 5, 2500, 115),
+(1425, 'karamah', 91400, 180, 4, 2200, 118),
+(2125, 'faris', 52100, 200, 4, 2600, 125);
+
+INSERT INTO room (room_number, room_salary, room_area, apartment_id)
+VALUES
+(1, 500, 50, 5253),
+(2, 600, 60, 5253),
+(3, 550, 55, 5254),
+(4, 700, 70, 5254),
+(5, 800, 80, 4312);
+
+INSERT INTO tenant (tenant_id, tenant_first_name, tenant_second_name, tenant_last_name, tenant_sex, tenant_phone_number)
+VALUES
+(1, 'John', 'A', 'Doe', 'Male', '123-456-7890'),
+(2, 'Jane', 'B', 'Smith', 'Female', '098-765-4321');
+
+INSERT INTO rental (rental_id, room_number, tenant_id, rented_date_time)
+VALUES
+(1, 1, 1, TO_TIMESTAMP('2024-06-02 10:30:00', 'YYYY-MM-DD HH24:MI:SS')),
+(2, 2, 2, TO_TIMESTAMP('2024-06-03 14:00:00', 'YYYY-MM-DD HH24:MI:SS'));
