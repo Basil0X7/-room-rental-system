@@ -1,0 +1,42 @@
+CREATE TABLE oner (
+    oner_id INT PRIMARY KEY,
+    oner_name VARCHAR(50),
+    oner_phone_number VARCHAR(20)
+);
+
+CREATE TABLE apartment (
+    apartment_id INT PRIMARY KEY,
+    building_name VARCHAR(50),
+    building_number INT,
+    apartment_area INT,
+    number_of_rooms INT,
+    monthly_collection INT,
+    oner_id INT,
+    FOREIGN KEY (oner_id) REFERENCES oner(oner_id)
+);
+
+CREATE TABLE room (
+    room_number INT PRIMARY KEY,
+    room_salary INT,
+    room_area INT,
+    apartment_id INT,
+    FOREIGN KEY (apartment_id) REFERENCES apartment(apartment_id)
+);
+
+CREATE TABLE tenant (
+    tenant_id INT PRIMARY KEY,
+    tenant_first_name VARCHAR(50),
+    tenant_second_name VARCHAR(20),
+    tenant_last_name VARCHAR(50),
+    tenant_sex VARCHAR(20),
+    tenant_phone_number VARCHAR(20)
+);
+
+CREATE TABLE rental (
+    rental_id INT PRIMARY KEY,
+    room_number INT,
+    tenant_id INT,
+    rented_date_time TIMESTAMP,
+    FOREIGN KEY (room_number) REFERENCES room(room_number),
+    FOREIGN KEY (tenant_id) REFERENCES tenant(tenant_id)
+);
